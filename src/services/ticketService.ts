@@ -2,11 +2,11 @@ import { apiClient } from "./apiClient";
 
 export const ticketService = {
   list: () =>
-    apiClient.post("/Ticket/Ticket/List", {}),
+    apiClient.post("/Services/Ticket/Ticket/List", {}),
 
   retrieve: (id: number) =>
-    apiClient.post("/Ticket/Ticket/Retrieve", { EntityId: id }),
+    apiClient.post("/Services/Ticket/Ticket/Retrieve", { EntityId: id }),
 
   create: (entity: any) =>
-    apiClient.post("/Ticket/Ticket/Create", { Entity: entity })
+    apiClient.post("/Services/Ticket/Ticket/Create", { Entity: entity })
 };
