@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { ticketService } from "../services/ticketService";
 import TicketList from "../components/tickets/TicketList";
+import Layout from "../components/layout/Layout";
 
 export default function TicketsPage() {
   const [tickets, setTickets] = useState<any[]>([]);
@@ -17,9 +18,11 @@ export default function TicketsPage() {
   if (loading) return <div>Loading...</div>;
 
   return (
-    <div>
-      <h1>Tickets</h1>
-      <TicketList tickets={tickets} />
-    </div>
+    <Layout>
+      <div>
+        <h1>Tickets</h1>
+        <TicketList tickets={tickets} />
+      </div>
+    </Layout>
   );
 }
