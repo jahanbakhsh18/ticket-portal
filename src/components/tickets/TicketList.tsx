@@ -4,7 +4,7 @@ export default function TicketList({ tickets }: any) {
   return (
     <div>
       {tickets.map((t: any) => (
-        <TicketCard key={t.TicketId} ticket={t} />
+        <TicketCard key={t.Id} ticket={t} />
       ))}
     </div>
   );

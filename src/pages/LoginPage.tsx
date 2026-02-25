@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, type SyntheticEvent } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 
@@ -15,7 +15,8 @@ export default function LoginPage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  /* FormEvent is replaced with SyntheticEvent in React-19*/
+  const handleSubmit = async (e: SyntheticEvent) => {
     e.preventDefault();
     setLoading(true);
     setError("");

@@ -11,5 +11,8 @@ export const authService = {
         apiClient.get("/Account/Signout"),
 
     me: () => 
-        apiClient.get("/Account/CurrentUser")
+        apiClient.get("/Account/CurrentUser"),
+
+    refreshCsrfToken: () =>
+        apiClient.get("/Account/Login")
 };

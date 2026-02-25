@@ -23,6 +23,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
     const login = async (u: string, p: string) => {
         await authService.login(u, p);
+        await authService.refreshCsrfToken();
         const res = await authService.me();
         setUser(res.data);
     }
