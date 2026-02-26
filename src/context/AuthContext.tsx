@@ -21,11 +21,14 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
             .finally(() => setLoading(false));
     }, []);
 
-    const login = async (u: string, p: string) => {
+    const login = async (u: string, p: string) => {        
+        // get initial CSRF
+        await authService.csrf();        
         await authService.login(u, p);
+        // refresh CSRF AFTER login
         await authService.refreshCsrfToken();
         const res = await authService.me();
-        setUser(res.data);
+        setUser(res?.data);
     }
 
     const logout = async () => {

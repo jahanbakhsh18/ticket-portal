@@ -6,12 +6,15 @@ export const authService = {
             Username: username,
             Password: password
         }),
-    
-    logout: () => 
+
+    logout: () =>
         apiClient.get("/Account/Signout"),
 
-    me: () => 
+    me: () =>
         apiClient.get("/Account/CurrentUser"),
+
+    csrf: () =>
+        apiClient.get("/Account/CSRF"),
 
     refreshCsrfToken: () =>
         apiClient.get("/Account/Login")

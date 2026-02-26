@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { apiClient } from "../services/apiClient";
+import Layout from "../components/layout/Layout";
 
 export default function TicketDetailsPage() {
   const { id } = useParams();
@@ -31,22 +32,24 @@ export default function TicketDetailsPage() {
   if (!ticket) return <div>Ticket not found</div>;
 
   return (
-    <div>
-      <h2>Ticket Details</h2>
+    <Layout>
+      <div>
+        <h2>Ticket Details</h2>
 
-      <table style={styles.table}>
-        <tbody>
-          {Object.entries(ticket).map(([key, value]) => (
-            <tr key={key}>
-              <td style={styles.key}>{key}</td>
-              <td style={styles.value}>
-                {formatValue(value)}
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+        <table style={styles.table}>
+          <tbody>
+            {Object.entries(ticket).map(([key, value]) => (
+              <tr key={key}>
+                <td style={styles.key}>{key}</td>
+                <td style={styles.value}>
+                  {formatValue(value)}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </Layout>
   );
 }
 
@@ -59,7 +62,7 @@ function formatValue(value: any) {
   return value.toString();
 }
 
-const styles: Record<string, React.CSSProperties> =  {
+const styles: Record<string, React.CSSProperties> = {
   table: {
     borderCollapse: "collapse",
     width: "100%"

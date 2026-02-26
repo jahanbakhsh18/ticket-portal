@@ -15,7 +15,7 @@ export default function LoginPage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  /* FormEvent is replaced with SyntheticEvent in React-19*/
+  /* FormEvent is replaced with SyntheticEvent in React-19 */
   const handleSubmit = async (e: SyntheticEvent) => {
     e.preventDefault();
     setLoading(true);
@@ -24,8 +24,8 @@ export default function LoginPage() {
     try {
       await login(username, password);
       navigate(returnUrl, { replace: true });
-    } catch (err: any) {
-      setError("Invalid username or password");
+    } catch (error: any) {
+      setError(error.message);
     } finally {
       setLoading(false);
     }
